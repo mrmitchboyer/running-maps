@@ -15,7 +15,7 @@ gpx = <<EOD
   xmlns:gpxtpx="http://www.garmin.com/xmlschemas/TrackPointExtension/v1">
 EOD
 
-routes = JSON.parse(File.read('routes/durham.json'))
+routes = JSON.parse(File.read('routes/nyc.json'))
 
 routes.each_with_index do |route, index|
 
@@ -43,6 +43,6 @@ end
 
 gpx << "</gpx>"
 
-File.open("gpx/durham.gpx","w") do |f|
+File.open("gpx/nyc.gpx","w") do |f|
   f.write(gpx)
 end

@@ -5,7 +5,7 @@ require 'open-uri'
 require 'json'
 require 'colored'
 
-paths = JSON.parse(File.read('results/durham.json'))
+paths = JSON.parse(File.read('results/nyc.json'))
 
 routes = []
 
@@ -13,7 +13,7 @@ paths.each_with_index do |path, index|
 
   url = "http://runkeeper.com#{path}"
 
-  puts "#{index}. #{url}".blue
+  puts "#{index+1}. #{url}".blue
 
   current = ""
 
@@ -29,7 +29,7 @@ paths.each_with_index do |path, index|
 
   routes << route
 
-  File.open("routes/durham.json","w") do |f|
+  File.open("routes/nyc.json","w") do |f|
     f.write(routes.to_json)
   end
 
